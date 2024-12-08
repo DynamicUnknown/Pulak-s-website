@@ -3,10 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pulak</title>
+    <title>Chrono Escape</title>
 </head>
+<style>
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 60px 0 0; /* Keeps content below navbar */
+    background: linear-gradient(#e6eded, #b2c1c2); /* Gradient background */
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navigation Bar */
+.navbar {
+    width: 100%;
+    height: 60px; /* Set a consistent height for the navbar */
+    background-color: rgba(44, 62, 80, 0.8); /* Transparent background */
+    color: white;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(10px); /* Adds a blur effect */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.hamburger {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.settings {
+    display: flex;
+    align-items: center;
+}
+
+.settings label {
+    margin-right: 5px;
+    font-size: 1rem;
+}
+
+/* Popup Menu */
+.popup-menu {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(236, 240, 241, 0.9); /* Slightly transparent popup menu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.popup-menu ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.popup-menu li {
+    margin: 5px 0;
+}
+
+.popup-menu a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background : linear-gradient(#454545, #1f1f1f);
+    color: white;
+}
+
+body.dark-theme .navbar {
+    background-color: rgba(26, 37, 47, 0.8); /* Dark transparent background */
+}
+
+body.dark-theme .popup-menu {
+    background-color: rgba(52, 73, 94, 0.9);
+}
+
+</style>
 <body>
-    <h1>Story</h1>
-    <p>Pulak will set the story !</p>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+            <div class="settings">
+                <label for="theme-toggle">Dark Mode</label>
+                <input type="checkbox" id="theme-toggle" onclick="toggleTheme()">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Popup Menu -->
+    <div class="popup-menu" id="popup-menu">
+        <ul>
+            <li><a href="#story" onclick="closeMenu()">Story</a></li>
+            <li><a href="#features" onclick="closeMenu()">Gameplay Features</a></li>
+            <li><a href="#objective" onclick="closeMenu()">Objective</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <h1>Chrono Escape</h1>
+    <h2 id="story">Story</h2>
+    <p>
+        In the year 3025, a scientist named Alex discovers an ancient relic that opens a mysterious time portal. 
+        As he steps closer, a horde of cybernetic monsters, attracted by the portal’s power, ambush him. 
+        With no time to think, Alex leaps through the portal to escape. When he opens his eyes, he finds himself 
+        in an ancient era, surrounded by gigantic, menacing dinosaurs and primitive wilderness.
+    </p>
+    <p>
+        The world he has entered is full of danger, but it also holds the key to his survival — a way back to his time. 
+        However, before he can return to the future, Alex must navigate this prehistoric world, battling fierce creatures, 
+        building a stronghold, and scavenging for ancient resources to survive. To escape, he must locate hidden relics of time, 
+        each piece essential to opening the portal back to the year 3025.
+    </p>
+    <h2 id="features">Gameplay Features</h2>
+    <ul>
+        <li><strong>Fighting Dinosaurs:</strong> Face different species, each with unique behavior and attacks. You’ll need to strategize to defeat these ancient creatures.</li>
+        <li><strong>Base Building:</strong> Gather materials and build a fortified base to protect yourself from the elements and predators.</li>
+        <li><strong>Resource Scavenging:</strong> Collect resources from the past, like ancient stones, plants, and metals to craft tools and weapons.</li>
+        <li><strong>Time Relics:</strong> Search for hidden time relics scattered throughout the world. Each relic holds part of the secret to reopening the time portal and returning home.</li>
+        <li><strong>Dynamic Weather & Day/Night Cycle:</strong> The environment is harsh, with changing weather and dangerous creatures that appear at night.</li>
+        <li><strong>Survival Mechanics:</strong> You must manage hunger, health, and stamina, as well as defend your base from both dinosaurs and hostile human tribes who inhabit the past.</li>
+    </ul>
+    <h2 id="objective">Objective</h2>
+    <p>
+        Your primary mission is to survive and find the necessary time relics to return to 3025. 
+        Along the way, you'll uncover secrets of the time portal, the monsters that pursued you, 
+        and the fate of the ancient civilizations that once existed before your arrival.
+    </p>
+
 </body>
+<script>
+
+// Toggle Menu Visibility
+function toggleMenu() {
+    const menu = document.getElementById("popup-menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+// Close Menu When an Item is Clicked
+function closeMenu() {
+    const menu = document.getElementById("popup-menu");
+    menu.style.display = "none";
+}
+
+// Toggle Theme
+function toggleTheme() {
+    document.body.classList.toggle("dark-theme");
+}
+
+</script>
 </html>
